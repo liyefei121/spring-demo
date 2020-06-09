@@ -11,6 +11,7 @@
 
     <modules>
         <module>spring-helloworld</module>
+        <module>spring-loadproperties</module>
     </modules>
 
     <properties>
@@ -47,6 +48,12 @@
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjrt</artifactId>
             <version>1.6.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.10</version>
         </dependency>
     </dependencies>
 

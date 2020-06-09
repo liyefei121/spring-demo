@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+    <!-- 配置扫包路径 -->
+    <context:component-scan base-package="com.liyefei.spring.demo" />
+
+    <!-- 开启注解 -->
+    <context:annotation-config />
+
+    <!-- 方式1：通过property-placeholder标签加载配置文件 -->
+    <context:property-placeholder ignore-unresolvable="true" location="param1.properties" />
+
+    <!-- 方式3：通过PropertyPlaceholderConfigurer类加载 -->
+    <!-- 或者使用 PropertiesFactoryBean -->
+    <!--<bean class="org.springframework.beans.factory.config.PropertiesFactoryBean" />-->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:param3.properties</value>
+                <!--
+                    web项目可以按下面的方式加载
+                    <value>/WEB-INF/mail.properties</value>
+                -->
+            </list>
+        </property>
+    </bean>
+</beans>
